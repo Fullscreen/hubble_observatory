@@ -4,9 +4,9 @@ describe 'HubbleObservatory::TalentAccount.create' do
   let(:id) { HubbleObservatory::TalentAccount.create email: email }
 
   context 'with a valid email' do
-    let(:email) { 'user@example.com' }
+    let(:email) { "user-#{Time.now.to_i}@example.com" }
     it 'returns the account ID' do
-      expect(id).to be_a(String)
+      expect(id).to be_a(Integer)
     end
   end
 
