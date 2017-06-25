@@ -10,14 +10,14 @@ module HubbleObservatory
       @hubble_uuid = id
     end
 
-    # @return [String] the hubble uuid associated with the email
+    # @return [Integer] the hubble uuid associated with the email
     def self.create(email:)
       fetch_hubble_uuid do
         do_request(email: email, request_type: :post, route: "talent-accounts")
       end
     end
 
-    # @return [String] the hubble uuid associated with the email
+    # @return [Integer] the hubble uuid associated with the email
     def update(email:)
       fetch_hubble_uuid do
         do_request(email: email, request_type: :patch,
@@ -37,8 +37,8 @@ module HubbleObservatory
     def self.fetch_hubble_uuid(&request_block)
       account_data = yield if request_block
       hubble_uuid = if account_data
-        extract_hubble_uuid_from_data(data: account_data) ||
-        extract_hubble_uuid_from_errors(data: account_data)
+          extract_hubble_uuid_from_data(data: account_data) ||
+          extract_hubble_uuid_from_errors(data: account_data)
       end
       hubble_uuid.to_i if !hubble_uuid.nil?
     end

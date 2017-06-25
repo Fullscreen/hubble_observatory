@@ -46,7 +46,7 @@ module HubbleObservatory
     end
 
     def expected_response?
-      response.is_a? (Net::HTTPSuccess) || response.is_a?(Net::HTTPUnprocessableEntity)
+      (response.is_a? Net::HTTPSuccess) || (response.is_a? Net::HTTPUnprocessableEntity)
     end
 
     def response

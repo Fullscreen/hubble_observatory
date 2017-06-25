@@ -16,7 +16,7 @@ After [registering your app](https://fullscreen.github.io/hubble_observatory/), 
 
 ```ruby
 HubbleObservatory::TalentAccount.create email: 'user@example.com'
-# => '123456'
+# => 123456
 ```
 
 The **full documentation** is available at [rubydoc.info](http://www.rubydoc.info/gems/hubble_observatory/frames).
@@ -67,7 +67,7 @@ Update the email of a Talent Account give the corresponding ID:
 ```ruby
 talent_account = HubbleObservatory::TalentAccount.new id: '123456'
 talent_account.update email: 'newuser@example.com'
-# => '123456'
+# => 123456
 ```
 ### FsEmployee#create
 
