@@ -45,8 +45,12 @@ module HubbleObservatory
       @uri ||= URI::HTTPS.build host: host, path: "/api/v1/#{@route}", query: URI.encode_www_form(@query_params)
     end
 
+    def expected_response?
+      response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPUnprocessableEntity)
+    end
+
     def response
-      Net::HTTP.start(uri.host, 443, use_ssl: true) do |http|
+      @response ||= Net::HTTP.start(uri.host, 443, use_ssl: true) do |http|
         http.request create_http_request
       end
     rescue *ConnectionError.errors => e
