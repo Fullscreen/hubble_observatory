@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.2.0 - 2017-09-13
+
+* [FEATURE] - Add capability to talk to hubble-stage
+
 ## 1.1.1 - 2017-06-26
 
 * [BUGFIX] - Update internal calls to the Hubble API. The
